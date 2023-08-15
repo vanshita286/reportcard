@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block start%}
+<h5>Rank:{{current_rank}}</h5>
+<h5>Total: {{total_marks.total_marks}}</h5>
+<table class="table table-stripped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">S No.</th>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for marks in queryset %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>
+        <b>{{marks.subject.subject_name}}</b>
+      </td>
+      <td>{{marks.marks}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
